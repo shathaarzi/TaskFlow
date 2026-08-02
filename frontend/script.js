@@ -88,37 +88,6 @@ function updateStatistics(tasks){
 
 }
 
-// =========================================
-// Toast Notifications
-// =========================================
-
-function showToast(message, type = "success"){
-
-    const toastContainer = document.getElementById("toastContainer");
-
-    const toast = document.createElement("div");
-
-    toast.className = `toast ${type}`;
-
-    toast.textContent = message;
-
-    toastContainer.appendChild(toast);
-
-    // Keep visible for 5 seconds
-
-    setTimeout(() => {
-
-        toast.style.animation = "fadeOut .4s ease forwards";
-
-        setTimeout(() => {
-
-            toast.remove();
-
-        },400);
-
-    },5000);
-
-}
 
 // =========================================
 // Render Functions
@@ -401,7 +370,7 @@ addTaskBtn.addEventListener("click", async () => {
 
     if (titleInput.value.trim() === "") {
 
-         showToast("Please enter a task title.", "error");
+        alert("Please enter a task title.");
 
         return;
 
@@ -423,7 +392,7 @@ addTaskBtn.addEventListener("click", async () => {
 
     await createTask(task);
 
-    showToast("Task created successfully!");
+   
 
     titleInput.value = "";
     descriptionInput.value = "";
